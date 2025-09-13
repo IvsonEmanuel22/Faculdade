@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa Simples</title>
+</head>
+
+<body>
+    <script>
+        let saldo = 0;
+        let sair = false;
+        while (!sair) {
+            let opcao = prompt(
+                "Bem vindo!! \n" +
+                "1 -> Depositar \n" +
+                "2 -> Consultar \n" +
+                "3 -> Sacar \n" +
+                "4 -> Sair"
+            );
+            if (opcao === "4") {
+                alert("Volte sempre");
+                sair = true;
+            } else if (opcao === "1") {
+                let valor = prompt("Quanto Você Deseja Depositar na Sua Conta?");
+                valor = parseInt(valor);
+                if (valor === valor && valor > 0) {
+                    saldo += valor;
+                    alert("Depósito realizado! Saldo atual: " + saldo);
+                } else {
+                    alert("Valor inválido para depósito.");
+                }
+            } else if (opcao === "2") {
+                alert("Seu saldo é de: " + saldo);
+            } else if (opcao === "3") {
+                let valor = prompt("Quanto Você Deseja Sacar da Sua Conta?");
+                valor = parseInt(valor);
+                if (valor === valor && valor > 0) {
+                    if (valor > saldo) {
+                        alert("Você não tem saldo suficiente.");
+                    } else {
+                        saldo -= valor;
+                        alert("Você sacou: " + valor + "\nSaldo atual: " + saldo);
+                    }
+                } else {
+                    alert("Valor inválido para saque.");
+                }
+            } else {
+                alert("Opção incorreta, tente novamente");
+            }
+        }
+    </script>
+</body>
+
+</html>
